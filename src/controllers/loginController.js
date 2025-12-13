@@ -1,21 +1,21 @@
-const Login = require ('../models/LoginModel')
+const Login = require ('../models/LoginModel');
 
 exports.index = (req, res) => {
     res.render('login');
 };
 
-exports.register = async function(req , res) {
+exports.register = async function(req, res) {
     const login = new Login(req.body);
     await login.register();
 
     if(login.errors.length > 0) {
-        req.flash('errors', login.errors)
-        req.sessions.save(function() {
-        return res.redirect('back');
+        req.flash('errors', login.errors);
+        req.session.save(function() {
+        return res.redirect('http://localhost:3000/login/index');
         });
         return;
     }
 
 
     res.send(login.errors);
-}
+};
