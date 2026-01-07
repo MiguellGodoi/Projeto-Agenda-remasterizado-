@@ -12,3 +12,4 @@ route.get('/login/index' , loginController.index);
 route.post('/login/register' , loginController.register);
 
 module.exports = route;
+

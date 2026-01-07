@@ -19,3 +19,4 @@ exports.register = async function(req, res) {
 
     res.send(login.errors);
 };
+ 
